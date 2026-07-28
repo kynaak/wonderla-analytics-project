@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: customer
+    database: RAWDATA_WONDERLA
+    schema: CUSTOMER
+    tables:
+      - name: CHECKINS
+      - name: CUSTOMERFEEDBACK
+      - name: TICKETSALESONLINE
+      - name: TICKETSALESPHYSICAL
+
+  - name: rides
+    database: RAWDATA_WONDERLA
+    schema: RIDES
+    tables:
+      - name: CHECKINS
+      - name: ELECTRICITYCOSTS
+      - name: MAINTENANCECOSTS
+      - name: SAFETYINCIDENTS
+      - name: STAFFCOSTS
+      - name: SUPPLIESCOSTS
+
+  - name: merchandise_products
+    database: RAWDATA_WONDERLA
+    schema: MERCHANDISE_PRODUCTS
+    tables:
+      - name: MERCHANDISESALESONLINE
+      - name: MERCHANDISESALESPHYSICAL
+
+  - name: ticket_types
+    database: RAWDATA_WONDERLA
+    schema: TICKET_TYPES
+    tables:
+      - name: PHYSICALTICKETSALES
+      - name: TICKETSALESONLINE
+
+  - name: weather_data
+    database: RAWDATA_WONDERLA
+    schema: WEATHER_DATA
+    tables:
+      - name: CHECKINS
+      - name: OPERATINGCOSTS
+      - name: TICKETTYPES

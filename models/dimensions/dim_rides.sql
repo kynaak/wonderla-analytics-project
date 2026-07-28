@@ -1,0 +1,20 @@
+select
+    ride_id,
+    ride_name,
+    thrill_level,
+    emergency_exits,
+    staff_required,
+    ride_size_sqft,
+    park_zone,
+    min_height_cm,
+    opening_year,
+    safety_rating,
+    max_daily_capacity,
+    ride_type,
+    is_water_ride,
+    max_capacity_per_group,
+    ride_status,
+    duration_seconds,
+    created_at,
+    updated_at
+from {{ ref('stg_operatingcosts') }}

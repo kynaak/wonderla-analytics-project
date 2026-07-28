@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: dim_ticket_types
+    description: Ticket type dimension used for pricing and ticket analysis.
+    columns:
+      - name: ticket_id
+        description: Unique identifier for each ticket type.
+        tests:
+          - not_null
+          - unique
+
+      - name: ticket_type_name
+        description: Business name of the ticket type.
+        tests:
+          - not_null
+
+      - name: price
+        description: Current ticket price.
+        tests:
+          - not_null
+
+  - name: dim_rides
+    description: Ride dimension containing operational ride attributes.
+    columns:
+      - name: ride_id
+        description: Unique identifier for each ride.
+        tests:
+          - not_null
+          - unique
+
+      - name: ride_name
+        description: Business name of the ride.
+        tests:
+          - not_null
+
+  - name: fact_checkins
+    description: Ride check-in events at customer visit level.
+    columns:
+      - name: checkin_id
+        description: Unique check-in identifier.
+        tests:
+          - not_null
+          - unique
+
+      - name: ticket_id
+        description: Ticket associated with the check-in.
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_ticket_types')
+                field: ticket_id
+
+  - name: fact_customer_feedback
+    description: Customer feedback and rating events.
+    columns:
+      - name: feedback_id
+        description: Unique feedback identifier.
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_ticket_sales
+    description: Ticket sales transactions.
+    columns:
+      - name: sale_id
+        description: Unique ticket sale identifier.
+        tests:
+          - not_null
+
+      - name: ticket_id
+        description: Ticket type sold.
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_ticket_types')
+                field: ticket_id
+
+  - name: fact_merchandise_sales
+    description: Merchandise sales transactions.
+    columns:
+      - name: sale_id
+        description: Unique merchandise sale identifier.
+        tests:
+          - not_null
+
+  - name: fact_operating_costs
+    description: Ride operating expense records.
+    columns:
+      - name: ride_id
+        description: Ride associated with the expense.
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_rides')
+                field: ride_id

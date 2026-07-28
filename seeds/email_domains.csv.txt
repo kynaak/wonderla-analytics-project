@@ -1,6 +1,0 @@
-domain,provider
-gmail.com,Gmail
-yahoo.com,Yahoo
-outlook.com,Outlook
-hotmail.com,Hotmail
-icloud.com,iCloud

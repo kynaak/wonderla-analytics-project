@@ -17,4 +17,4 @@ select
     duration_seconds,
     created_at,
     updated_at
-from {{ ref('stg_operatingcosts') }}
+from {{ ref('stg_rides') }}

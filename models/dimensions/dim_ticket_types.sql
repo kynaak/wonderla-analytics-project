@@ -8,4 +8,4 @@ select
     launch_date,
     created_at,
     updated_at
-from {{ ref('stg_weather_tickettypes') }}
+from {{ ref('stg_tickettypes') }}
